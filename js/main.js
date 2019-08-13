@@ -15,14 +15,12 @@ window.addEventListener('beforeinstallprompt', function (e) {
   e.preventDefault();
   // Stash the event so it can be triggered later.
   installPromptEvent = e;
+  console.log(getType(installPromptEvent))
 
   showAddToHomeScreen();
 });
 
 function showAddToHomeScreen() {
-  //var a2hsBtn = document.querySelector(".ad2hs-prompt");
-  //a2hsBtn.style.display = "block";
-  //a2hsBtn.addEventListener("click", addToHomeScreen);
   console.log("show add to home screen");
 }
 
@@ -44,3 +42,9 @@ document.querySelector('#btn-install').addEventListener('click', () => {
 window.addEventListener('appinstalled', (evt) => {
   console.log('has already installed this app');
 });
+
+function getType(obj){
+  var type = Object.prototype.toString.call(obj).slice(8, -1);
+  return type;
+}
+
