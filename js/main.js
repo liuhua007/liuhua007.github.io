@@ -9,8 +9,17 @@ window.onload = () => {
 
 var installPromptEvent;
 
+window.addEventListener('appinstalled', (evt) => {
+  console.log('has already installed this app');
+});
+
 window.addEventListener('beforeinstallprompt', function (e) {
   console.log("received beforeinstallprompt....");
+
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('display-mode is standalone');
+  }
+
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
@@ -21,7 +30,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 });
 
 function showAddToHomeScreen() {
-  console.log("show add to home screen");
+  // console.log("show add to home screen");
 }
 
 document.querySelector('#btn-install').addEventListener('click', () => {
@@ -38,10 +47,6 @@ document.querySelector('#btn-install').addEventListener('click', () => {
     }
   })
 })
-
-window.addEventListener('appinstalled', (evt) => {
-  console.log('has already installed this app');
-});
 
 function getType(obj){
   var type = Object.prototype.toString.call(obj).slice(8, -1);
