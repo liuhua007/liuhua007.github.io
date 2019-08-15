@@ -9,16 +9,18 @@ window.onload = () => {
 
 var installPromptEvent;
 
-window.addEventListener('appinstalled', (evt) => {
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  console.log('display-mode is standalone');
+} else {
+  console.log('display-mode is not standalone');
+}
+
+window.addEventListener('appinstalled', function() => {
   console.log('has already installed this app');
 });
 
 window.addEventListener('beforeinstallprompt', function (e) {
   console.log("received beforeinstallprompt....");
-
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-    console.log('display-mode is standalone');
-  }
 
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
