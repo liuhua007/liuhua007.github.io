@@ -15,7 +15,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
   console.log('display-mode is not standalone');
 }
 
-window.addEventListener('appinstalled', function() => {
+window.addEventListener('appinstalled', function() {
   console.log('has already installed this app');
 });
 
