@@ -26,7 +26,9 @@ window.addEventListener('beforeinstallprompt', function (e) {
   //e.preventDefault();
   // Stash the event so it can be triggered later.
   installPromptEvent = e;
-  console.log(getType(installPromptEvent))
+  installPromptEvent.prompt(); // just for a test
+
+  //console.log(getType(installPromptEvent))
 
   showAddToHomeScreen();
 });
