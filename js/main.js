@@ -23,15 +23,10 @@ window.addEventListener('beforeinstallprompt', function (e) {
   console.log("Received beforeinstallprompt....");
 
   // Prevent Chrome 67 and earlier from automatically showing the prompt
-  //e.preventDefault();
+  e.preventDefault();
   // Stash the event so it can be triggered later.
   installPromptEvent = e;
   
-
-  // just for a test
-  document.getElementById("btn-install").click();
-
-
   //console.log(getType(installPromptEvent))
 
   showAddToHomeScreen();
