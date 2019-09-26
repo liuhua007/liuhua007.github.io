@@ -26,7 +26,11 @@ window.addEventListener('beforeinstallprompt', function (e) {
   //e.preventDefault();
   // Stash the event so it can be triggered later.
   installPromptEvent = e;
-  installPromptEvent.prompt(); // just for a test
+  
+
+  // just for a test
+  document.getElementById("btn-install").click();
+
 
   //console.log(getType(installPromptEvent))
 
