@@ -20,7 +20,7 @@ window.addEventListener('appinstalled', function() {
 });
 
 window.addEventListener('beforeinstallprompt', function (e) {
-  console.log("Received beforeinstallprompt....");
+  console.log("Received beforeinstallprompt event....");
 
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   //e.preventDefault();
