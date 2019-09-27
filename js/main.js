@@ -10,17 +10,17 @@ window.onload = () => {
 var installPromptEvent;
 
 if (window.matchMedia('(display-mode: standalone)').matches) {
-  console.log('display-mode is standalone');
+  console.log('[JS] display-mode is standalone');
 } else {
-  console.log('display-mode is not standalone');
+  console.log('[JS] display-mode is not standalone');
 }
 
 window.addEventListener('appinstalled', function() {
-  console.log('has already installed this app');
+  console.log('[JS] Received appinstalled event!!');
 });
 
 window.addEventListener('beforeinstallprompt', function (e) {
-  console.log("Received beforeinstallprompt event2....");
+  console.log("[JS] Received beforeinstallprompt event!!");
 
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
@@ -44,9 +44,9 @@ document.querySelector('#btn-install').addEventListener('click', () => {
   installPromptEvent.prompt();
   installPromptEvent.userChoice.then( choiceResult => {
     if (choiceResult.outcome === 'accepted') {
-      console.log('accepted to add to desktop')
+      console.log('[JS] accepted the installation')
     } else {
-      console.log('cancel adding to desktop')
+      console.log('[JS] canceled the installation')
     }
   })
 })
