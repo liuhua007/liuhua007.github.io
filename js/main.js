@@ -11,8 +11,12 @@ var installPromptEvent;
 
 if (window.matchMedia('(display-mode: standalone)').matches) {
   console.log('[JS] display-mode is standalone');
-} else {
-  console.log('[JS] display-mode is not standalone');
+} else if (window.matchMedia('(display-mode: fullscreen)').matches) {
+  console.log('[JS] display-mode is fullscreen');
+} else if (window.matchMedia('(display-mode: minimal-ui)').matches) {
+  console.log('[JS] display-mode is minimal-ui');
+} else if (window.matchMedia('(display-mode: browser)').matches) {
+  console.log('[JS] display-mode is browser');
 }
 
 window.addEventListener('appinstalled', function() {
@@ -37,6 +41,17 @@ function showAddToHomeScreen() {
 }
 
 document.querySelector('#btn-install').addEventListener('click', () => {
+  
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('[JS] 2 display-mode is standalone');
+  } else if (window.matchMedia('(display-mode: fullscreen)').matches) {
+    console.log('[JS] 2 display-mode is fullscreen');
+  } else if (window.matchMedia('(display-mode: minimal-ui)').matches) {
+    console.log('[JS] 2 display-mode is minimal-ui');
+  } else if (window.matchMedia('(display-mode: browser)').matches) {
+    console.log('[JS] 2 display-mode is browser');
+  }
+ 
   if( !installPromptEvent ) {
     return;
   }
